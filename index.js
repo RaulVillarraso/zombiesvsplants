@@ -9,15 +9,28 @@ var timerId = setInterval(player.move, 300)
 console.log(player.sprite.style.top)
 
 window.addEventListener('keydown', function (e) {
-    switch (e.key) {
-        case 'a':
-            player.direction = 1
-            break;
-        case 'd':
-            player.direction = -1
-            break;
+        switch (e.key) {
+            case 'a':
+                if(player.x > 0){
+                    player.direction = 1
+                    break;  
+                } else {
+                    player.direction = 0
+                    break
+                }
+                
+            case 'd':
+                if (player.x < 420){
+                    player.direction = -1
+                    break; 
+                } else {
+                    player.direction = 0
+                    break
+                }
+                
+        }
     }
-})
+)
 
 window.addEventListener('keyup',function(){
     player.direction = 0
