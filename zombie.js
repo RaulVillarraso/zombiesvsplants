@@ -2,7 +2,7 @@ function Zombie(x, y, board) {
     var self = this
     this.x = x
     this.y = y
-    this.speed = 10
+    this.speed = 1.5
     this.direction = null
     this.sprite;
 
@@ -20,8 +20,12 @@ function Zombie(x, y, board) {
     this.move = function () {
         self.y = self.y - self.speed;
         self.sprite.style.top = self.y + 'px'
-        self.x = self.x - self.speed * self.direction
-        self.sprite.style.left = self.x + 'px' 
+        var future = self.x - self.speed * self.direction
+        if(future > 0 && future < 420){
+            self.x = self.x - self.speed * self.direction
+            self.sprite.style.left = self.x + 'px'  
+        }
+        
     }
 }
 
