@@ -1,0 +1,43 @@
+body{
+    background-color: grey;
+}
+
+#main-board {
+    width: 450px;
+    height: 800px;
+    background-color: lightgreen;
+    margin: 50px auto;
+    position: relative;
+    display: flex;
+}
+
+
+#main-board #finish{
+    color: white;
+    width: 450px;
+    height: 30px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ #start {
+    width: 450px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(107, 56, 22);
+ }
+
+ .zombie{
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+ }
+
+ .plants{
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+ }
