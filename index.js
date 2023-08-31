@@ -1,17 +1,24 @@
-function Zombie(x, y){
-    this.x = x
-    this.y = y
-    this.sprite = document.createElement('div')
-
-    this.spawnZombie = function() {
-        this.sprite.style.top = this.y + 'px'
-        this.sprite.style.left = this.x + 'px'
-        this.sprite.classList.add('zombie')
-        board.appendChild(this.sprite)
-    }    
-}
+import { Zombie } from './zombie.js'
 
 var board = document.getElementById('main-board')
 
-var player = new Zombie(Math.floor(Math.random() * 450), 770)
+var player = new Zombie(200, 770, board)
 player.spawnZombie()
+
+var timerId = setInterval(player.move, 300)
+console.log(player.sprite.style.top)
+
+window.addEventListener('keydown', function (e) {
+    switch (e.key) {
+        case 'a':
+            player.direction = 1
+            break;
+        case 'd':
+            player.direction = -1
+            break;
+    }
+})
+
+window.addEventListener('keyup',function(){
+    player.direction = 0
+})

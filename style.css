@@ -9,7 +9,12 @@ body{
     margin: 50px auto;
     position: relative;
     display: flex;
-}
+
+
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);*/
+} 
 
 
 #main-board #finish{
