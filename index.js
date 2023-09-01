@@ -8,8 +8,8 @@ var plantY = Math.floor(Math.random() * (600 - 40) + 40)
 // Tablero y Elementos
 var board = document.getElementById('main-board')
 
-var player = new Zombie(200, 770, board, plant)
-var plant = new Plants(plantX, plantY, board, player)
+var player = new Zombie(200, 770, board)
+var plant = new Plants(plantX, plantY, board)
 
 plant.spawnPlant()
 player.spawnZombie()

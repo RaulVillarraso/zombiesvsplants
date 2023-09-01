@@ -1,4 +1,4 @@
-function Plants(x, y, board, player) {
+function Plants(x, y, board) {
     var self = this
     this.x = x; // coordenada horizontal
     this.y = y; // coordenada vertical

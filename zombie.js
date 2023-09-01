@@ -1,4 +1,4 @@
-function Zombie(x, y, board, plant) {
+function Zombie(x, y, board) {
     var self = this;
     this.x = x;
     this.y = y;
