@@ -7,12 +7,21 @@ var plantY = Math.floor(Math.random() * (600 - 40) + 40)
 
 // Tablero y Elementos
 var board = document.getElementById('main-board')
-
+var timerId
 var player = new Zombie(200, 770, board)
 var plant = new Plants(plantX, plantY, board)
 
-plant.spawnPlant()
-player.spawnZombie()
+function play(){
+    timerId = setInterval(zombieMovement, 30)
+    plant.spawnPlant()
+    player.spawnZombie()
+}
+
+function reset(){
+    board.removeChild(plant.sprite)
+    board.removeChild(player.sprite)
+    play()
+}
 
 function checkCollition(){
     if (
@@ -23,24 +32,22 @@ function checkCollition(){
     ) {
         player.dead = true
     }
-
-    
 }
 
 function zombieMovement(){
-        meta()
+        goal()
         checkCollition()
         if(player.dead){
-            alert('Game Over')
+            //alert('Game Over')
             clearInterval(timerId)
+            //reset()
         }
     player.move()
 }
-// Bucles
-var timerId = setInterval(zombieMovement, 30)
 
 
-var meta = function () {
+
+var goal = function () {
     if (player.y <= 30) {
         clearInterval(timerId)
         alert("Victoria")
@@ -63,4 +70,6 @@ window.addEventListener('keydown', function (e) {
 window.addEventListener('keyup', function () {
     player.direction = 0
 })
+
+play()
 

@@ -7,12 +7,11 @@ function Plants(x, y, board) {
     this.sprite; // elemento insertado en el DOM
 
     this.spawnPlant = function () { // función que genera las plantas en el tablero
-        var plant = document.createElement('div') // creamos el elemento div en la variable plant
-        plant.style.top = this.y + 'px'// posicionamos con top como referencia vertical
-        plant.style.left = this.x + 'px'// posicionamos con left como referencia horizontal
-        plant.classList.add('plants') // añadimos la clase para estilar (siempre debe coincidir con el CSS)
-        board.appendChild(plant) // introducimos el elemento en el DOM (HTML)
-        this.sprite = document.getElementsByClassName('plants')[0] // asociamos el elemento en el DOM a la propiedad Sprite
+        this.sprite = document.createElement('div') // creamos el elemento div en la variable plant
+        this.sprite.style.top = this.y + 'px'// posicionamos con top como referencia vertical
+        this.sprite.style.left = this.x + 'px'// posicionamos con left como referencia horizontal
+        this.sprite.classList.add('plants') // añadimos la clase para estilar (siempre debe coincidir con el CSS)
+        board.appendChild(this.sprite) // introducimos el elemento en el DOM (HTML)
     }
 }
 export {Plants}
