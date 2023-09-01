@@ -6,10 +6,16 @@ var board = document.getElementById('main-board')
 var player = new Zombie(200, 770, board)
 player.spawnZombie()
 
-var plant = new Plants(50, 100, board)
+var plant = new Plants(50, 100, player, board)
 plant.spawnPlant()
+collition()
 
-var timerId = setInterval(player.move, 15)
+function movimiento(){
+    player.move()
+    collition()
+}
+
+var timerId = setInterval(movimiento, 15)
 console.log(player.sprite.style.top)
 
 window.addEventListener('keydown', function (e) {
@@ -23,6 +29,21 @@ window.addEventListener('keydown', function (e) {
     }
 }
 )
+
+function collition () {
+    if (plant.x < player.x + player.width &&
+        plant.x + plant.width > player.x &&
+        plant.y < player.y + player.heigth &&
+        plant.heigth + plant.y > player.y) 
+    {
+        //alert("Ha colisioasnado");
+        if(alert("Ha colisioasnado" === true)){
+            clearInterval(timerId)
+            timerId = setInterval(movimiento, 15)
+        }
+
+    }
+}
 
 window.addEventListener('keyup', function () {
     player.direction = 0

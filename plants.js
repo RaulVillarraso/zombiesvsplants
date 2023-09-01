@@ -1,8 +1,10 @@
-function Plants(x, y, board) {
+function Plants(x, y, player, board) {
     var self = this;
     this.x = x; // coordenada horizontal
     this.y = y; // coordenada vertical
     this.sprite; // elemento insertado en el DOM
+    this.width = 30;//ancho de la planta
+    this.heigth = 30;//alto de la planta
 
     this.spawnPlant = function () { // función que genera las plantas en el tablero
         var plant = document.createElement('div') // creamos el elemento div en la variable plant
@@ -13,5 +15,8 @@ function Plants(x, y, board) {
         this.sprite = document.getElementsByClassName('plants')[0] // asociamos el elemento en el DOM a la propiedad Sprite
     }
 
+
+
+
 }
-export {Plants}
+export { Plants }

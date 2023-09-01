@@ -5,6 +5,8 @@ function Zombie(x, y, board) {
     this.speed = 1.5
     this.direction = null
     this.sprite;
+    this.heigth = 30 //alto del zombie
+    this.width = 30 // ancho del zombie
 
     this.spawnZombie = function () {
         var zombie = document.createElement('div')
