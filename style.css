@@ -1,5 +1,8 @@
 body{
-    background-color: grey;
+    background-color: #808080;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 #main-board {
@@ -9,44 +12,61 @@ body{
     margin: 50px auto;
     position: relative;
     display: flex;
-
-
-    /* display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);*/
 } 
 
 
 #main-board #finish{
-    color: white;
-    width: 450px;
-    height: 30px;
-    background-color: red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
- 
- #start {
-    width: 450px;
-    height: 30px;
-    position: absolute;
-    bottom: 0;
-    background-color: rgb(107, 56, 22);
- }
+   color: white;
+   width: 450px;
+   height: 30px;
+   background-color: red;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
 
- .zombie{
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    background-color: blue;
- }
+#start {
+   width: 450px;
+   height: 30px;
+   position: absolute;
+   bottom: 0;
+   background-color: rgb(107, 56, 22);
+}
 
- 
+.zombie{
+   width: 30px;
+   height: 30px;
+   position: absolute;
+   background-color: blue;
+}
 
- .plants{
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    background-color: yellow;
- }
+.plants{
+   width: 30px;
+   height: 30px;
+   position: absolute;
+   background-color: yellow;
+}
+
+.transparencia{
+   width: 450px;
+   height: 800px;
+   background-color: black;
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   opacity: 0.65;
+}
+
+.game-over{
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   font-size: 3rem;
+   width: 450px;
+   height: 200px;
+   background-color: cornflowerblue;
+   z-index: 1;
+}
