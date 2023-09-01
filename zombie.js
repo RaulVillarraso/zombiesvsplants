@@ -8,6 +8,8 @@ function Zombie(x, y, board) {
     this.direction = null;
     this.dead = false;
     this.sprite;
+    this.heigth = 30 //alto del zombie
+    this.width = 30 // ancho del zombie
 
 
     this.spawnZombie = function () {
