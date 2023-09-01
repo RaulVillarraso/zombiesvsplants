@@ -2,7 +2,7 @@ function Zombie(x, y, board) {
     var self = this
     this.x = x
     this.y = y
-    this.speed = 1.5
+    this.speed = 5
     this.direction = null
     this.sprite;
 
@@ -13,12 +13,11 @@ function Zombie(x, y, board) {
         zombie.classList.add('zombie')
         board.appendChild(zombie)
         this.sprite = document.getElementsByClassName('zombie')[0]
-        console.log(this.sprite)
     }
 
 
     this.move = function () {
-        self.y = self.y - self.speed;
+        self.y = self.y - 2;
         self.sprite.style.top = self.y + 'px'
         var future = self.x - self.speed * self.direction
         if(future > 0 && future < 420){
