@@ -50,7 +50,7 @@ function zombieMovement(){
 var goal = function () {
     if (player.y <= 30) {
         clearInterval(timerId)
-        alert("Victoria")
+        //alert("Victoria")
     }
 }
 
