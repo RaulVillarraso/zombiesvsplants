@@ -13,6 +13,7 @@ play()
 
 // Start y Reset
 
+
 function reset(){
     board.removeChild(player.sprite)
     board.removeChild(plant.sprite)
@@ -80,5 +81,6 @@ window.addEventListener('keyup', function () {
     player.direction = 0
 })
 
-
-
+/*Evento del Start y Game Over*/
+var startGame = document.getElementById('start-game');
+startGame.addEventListener('click', reset)
