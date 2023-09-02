@@ -11,12 +11,11 @@ function Zombie(x, y, board) {
 
 
     this.spawnZombie = function () {
-        var zombie = document.createElement('div');
-        zombie.style.top = this.y + 'px';
-        zombie.style.left = this.x + 'px';
-        zombie.classList.add('zombie');
-        board.appendChild(zombie);
-        this.sprite = document.getElementsByClassName('zombie')[0];
+        this.sprite = document.createElement('div');
+        this.sprite.style.top = this.y + 'px';
+        this.sprite.style.left = this.x + 'px';
+        this.sprite.classList.add('zombie');
+        board.appendChild(this.sprite);
     }
 
 
@@ -28,15 +27,7 @@ function Zombie(x, y, board) {
             self.x = self.x - self.speed * self.direction;
             self.sprite.style.left = self.x + 'px';
         }
-
-        if(self.y < 30){
-            //tiene que salir el alert de meta
-        }
-
     }
-
-    
-
 }
 
 export { Zombie }
