@@ -76,6 +76,7 @@ body{
   height: 50px;
   background-color: grey;
   top: 435px;
+  border-radius: 10px;
 }
 
 .display {

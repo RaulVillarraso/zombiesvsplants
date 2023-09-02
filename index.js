@@ -1,31 +1,31 @@
 import { Zombie } from './zombie.js'
 import { Plants } from './plants.js'
 
-// Random Nums
-var plantX = Math.floor(Math.random() * 420)
-var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-
 // Tablero y Elementos
 var board = document.getElementById('main-board')
 var resetButton = document.getElementById('reset')
 var gameOver = document.getElementsByClassName('transparencia')[0]
 var timerId
-var player = new Zombie(200, 770, board)
-var plant = new Plants(plantX, plantY, board)
+var player
+var plant
 
 play()
 
 // Start y Reset
 
 function reset(){
-    board.removeChild(plant.sprite)
     board.removeChild(player.sprite)
+    board.removeChild(plant.sprite)
 }
 
 resetButton.addEventListener('click', play)
 
 function play(){
+    var plantX = Math.floor(Math.random() * 420)
+    var plantY = Math.floor(Math.random() * (600 - 40) + 40)
     gameOver.classList.toggle('display')
+    player = new Zombie(200, 770, board)
+    plant = new Plants(plantX, plantY, board)
     player.spawnZombie()
     plant.spawnPlant()
     timerId = setInterval(zombieMovement, 30)
