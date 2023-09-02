@@ -7,20 +7,41 @@ var plantY = Math.floor(Math.random() * (600 - 40) + 40)
 
 // Tablero y Elementos
 var board = document.getElementById('main-board')
+var resetButton = document.getElementById('reset')
+var gameOver = document.getElementsByClassName('transparencia')[0]
 var timerId
 var player = new Zombie(200, 770, board)
 var plant = new Plants(plantX, plantY, board)
 
-function play(){
-    timerId = setInterval(zombieMovement, 30)
-    plant.spawnPlant()
-    player.spawnZombie()
-}
+play()
+
+// Start y Reset
 
 function reset(){
     board.removeChild(plant.sprite)
     board.removeChild(player.sprite)
-    play()
+}
+
+resetButton.addEventListener('click', play)
+
+function play(){
+    gameOver.classList.toggle('display')
+    player.spawnZombie()
+    plant.spawnPlant()
+    timerId = setInterval(zombieMovement, 30)
+}
+
+// Movimiento / Derrota / Victoria
+
+function zombieMovement(){
+        goal()
+        checkCollition()
+        if(player.dead){
+            clearInterval(timerId)
+            reset()
+            gameOver.classList.toggle('display')
+        }
+    player.move()
 }
 
 function checkCollition(){
@@ -34,20 +55,8 @@ function checkCollition(){
     }
 }
 
-function zombieMovement(){
-        goal()
-        checkCollition()
-        if(player.dead){
-            //alert('Game Over')
-            clearInterval(timerId)
-            //reset()
-        }
-    player.move()
-}
 
-
-
-var goal = function () {
+function goal() {
     if (player.y <= 30) {
         clearInterval(timerId)
         //alert("Victoria")
@@ -71,5 +80,5 @@ window.addEventListener('keyup', function () {
     player.direction = 0
 })
 
-play()
+
 
