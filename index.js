@@ -2,29 +2,31 @@ import { Zombie } from './zombie.js'
 import { Plants } from './plants.js'
 
 // Tablero y Elementos
-var board = document.getElementById('main-board')
+var board = document.getElementById('main-board');
+var startGame = document.getElementById('start-game');
 var resetButton = document.getElementById('reset')
 var gameOver = document.getElementsByClassName('transparencia')[0]
 var timerId
 var player
 var plant
 
-play()
-
-// Start y Reset
-
+/*Evento del Start*/
+startGame.addEventListener('click', play)
+resetButton.addEventListener('click', play)
 
 function reset(){
     board.removeChild(player.sprite)
     board.removeChild(plant.sprite)
 }
 
-resetButton.addEventListener('click', play)
 
 function play(){
+    if(gameOver.getAttribute('class') != 'transparencia display'){
+        gameOver.classList.toggle('display')
+    }
+    startGame.parentNode.classList.add('display')
     var plantX = Math.floor(Math.random() * 420)
     var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-    gameOver.classList.toggle('display')
     player = new Zombie(200, 770, board)
     plant = new Plants(plantX, plantY, board)
     player.spawnZombie()
@@ -80,7 +82,3 @@ window.addEventListener('keydown', function (e) {
 window.addEventListener('keyup', function () {
     player.direction = 0
 })
-
-/*Evento del Start y Game Over*/
-var startGame = document.getElementById('start-game');
-startGame.addEventListener('click', reset)

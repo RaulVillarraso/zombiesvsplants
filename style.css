@@ -46,7 +46,8 @@ body{
   position: absolute;
   background-color: yellow;
 }
-                                                /*start y game over*/
+
+/*start y game over*/
 .transparencia{
   width: 450px;
   height: 800px;
@@ -58,7 +59,7 @@ body{
   opacity: 0.65;
 }
 
-#game-over{
+.game-over{
   position: absolute;
   display: flex;
   justify-content: center;
