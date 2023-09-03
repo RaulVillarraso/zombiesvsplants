@@ -13,6 +13,13 @@ function Plants(x, y, board) {
         this.sprite = newPlant
         board.appendChild(this.sprite) 
     }
+
+    this.clearPlants = function (){
+        const deletePlants = document.querySelector('.plants')
+        // board.removeChild(deletePlants) 
+        console.log('borrado')
+    }
+    
 }
 
 

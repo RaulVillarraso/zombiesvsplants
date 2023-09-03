@@ -9,8 +9,12 @@ var resetButton = document.getElementsByClassName('reset')
 var gameOver = document.getElementsByClassName('transparencia')[0]
 var victory = document.getElementById('victory')
 var timerId
+var timerPlants
 var player
 var plant
+var plantX
+var plantY
+var arrPlants = []
 
 
 /*Evento del Start*/
@@ -28,12 +32,13 @@ function play() {
     victory.parentNode.classList.toggle('display')
   }
   startGame.parentNode.classList.add('display')
-  var plantX = Math.floor(Math.random() * 420)
-  var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-  plant = new Plants(plantX, plantY, board)
+  // var plantX = Math.floor(Math.random() * 420)
+  // var plantY = Math.floor(Math.random() * (600 - 40) + 40)
+  // plant = new Plants(plantX, plantY, board)
   player = new Zombie(200, 770, board)
+  timerPlants = setInterval(plantsRandom, 2000);
   player.spawnZombie()
-  plant.spawnPlant()
+  //plant.spawnPlant()
   timerId = setInterval(zombieMovement, 30)
 }
 
@@ -56,20 +61,28 @@ function zombieMovement() {
   player.move()
 }
 
-function checkCollition() {
-  if (
-    plant.y + plant.height >= player.y &&
-    plant.y <= player.y + player.height &&
-    plant.x + plant.width >= player.x &&
-    plant.x <= player.x + player.width
-  ) {
-    player.dead = true
+
+
+function checkCollition() {//for para recorrer el array y dar colisiones a todas las plantas
+  for (let i = 0; i < arrPlants.length; i++) {
+    if (
+      arrPlants[i].y + arrPlants[i].height >= player.y &&
+      arrPlants[i].y <= player.y + player.height &&
+      arrPlants[i].x + arrPlants[i].width >= player.x &&
+      arrPlants[i].x <= player.x + player.width
+    ) {
+      player.dead = true
+    }
   }
+
 }
 
-function reset() {
+function reset() {//borrar todos las plantas con queryseletionAll
+  clearInterval(timerId)
+  clearInterval(timerPlants)
+  board.removeChild(arrPlants[i].clearPlants)
   board.removeChild(player.sprite)
-  board.removeChild(plant.sprite)
+  // board.removeChild(plant.sprite)
 }
 
 
@@ -91,88 +104,11 @@ window.addEventListener('keyup', function () {
 })
 
 
-
-
-//--------------------------------------------LIZ--------------------------------------------------
-// var plantas = [];
-// var timerPlant;
-// createPlants();
-// function createPlants() {
-//   var limitePlantas = 0; // limite de intentos
-//   var conseguido = false; // se usa para saber si hemos añadido con exito la planta
-//   while (!conseguido && limitePlantas < 20) {
-//     var plantX = Math.floor(Math.random() * 420);
-//     var plantY = Math.floor(Math.random() * (480 - 40) + 40);
-//     var sobrepuesto = false; // asumimos que no hay superposición
-
-//     //revisamos todas las plantas
-//     for (let i = 0; i < plantas.length; i++) {
-//       var plantaExistente = plantas[i];
-
-//       if (
-//         Math.abs(plantaExistente.x - plantX) < 40 &&
-//         Math.abs(plantaExistente.y - plantY) < 40
-//       ) {
-//         sobrepuesto = true; // Hay superposición
-//         break;
-//       }
-//     }
-//     // si no hay superposición, creamos y añadimos la nueva planta
-//     if (!sobrepuesto) {
-//       var newPlant = new Plants(plantX, plantY, board);
-//       newPlant.spawnPlant();
-//       plantas.push(newPlant);
-//       conseguido = true; //  se añadio correctamente
-//     }
-//     limitePlantas++; // se incrementa el numero de intentos
-//   }
-// }
-//--------------------------------------------LIZ--------------------------------------------------
-
-
-
-
-
-
-
-//--------------------------------------------YERAY--------------------------------------------------
-// var plantX = Math.floor(Math.random() * 420)
-// var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-// var enemyRandom = new Plants(plantX, plantY, board);
-// enemyRandom.plantsRandom();
-
-
-// function plantsRandom(){
-//   //var arrPlants = [];
-//   var plantX = Math.floor(Math.random() * 420)
-//   var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-//   var plant = new Plants(plantX, plantY, board)
-
-//   for(let i = 0; i <= 20; i++){
-//       //arrPlants.push(plant[i]);
-//       //arrPlants[i].spawnPlant();
-//       //setTimeout(plantsRandom, 2000);
-//       timerId = setInterval(plantsRandom, 5000);
-      
-//   }
-//   plant.spawnPlant();
-//   board.appendChild(plant);
-// }
-
- plantsRandom();
-
-
-
-
 //generar plantas aleatorias
 function plantsRandom() {
-  var plantX = Math.floor(Math.random() * 420);
-  var plantY = Math.floor(Math.random() * (600 - 40) + 40);
-  var plant = new Plants(plantX, plantY, board);
+  plantX = Math.floor(Math.random() * 420);
+  plantY = Math.floor(Math.random() * (600 - 40) + 40);
+  plant = new Plants(plantX, plantY, board);
+  arrPlants.push(plant);
   plant.spawnPlant();
 }
-
-
-
- setInterval(plantsRandom, 2000);
-//--------------------------------------------YERAY--------------------------------------------------
