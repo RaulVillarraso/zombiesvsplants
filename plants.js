@@ -14,4 +14,8 @@ function Plants(x, y, board) {
         board.appendChild(this.sprite) 
     }
 }
-export {Plants}
+
+
+
+
+export {Plants};
