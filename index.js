@@ -4,46 +4,54 @@ import { Plants } from './plants.js'
 // Tablero y Elementos
 var board = document.getElementById('main-board');
 var startGame = document.getElementById('start-game');
-var resetButton = document.getElementById('reset')
+var resetButton = document.getElementsByClassName('reset')
 var gameOver = document.getElementsByClassName('transparencia')[0]
+var victory = document.getElementById('victory')
 var timerId
 var player
 var plant
 
+
 /*Evento del Start*/
 startGame.addEventListener('click', play)
-resetButton.addEventListener('click', play)
-
-function reset(){
-    board.removeChild(player.sprite)
-    board.removeChild(plant.sprite)
-}
+resetButton = [...resetButton]
+resetButton.forEach(elem => elem.addEventListener('click', play))
 
 
+// Funciones del juego
 function play(){
     if(gameOver.getAttribute('class') != 'transparencia display'){
         gameOver.classList.toggle('display')
     }
+    if(victory.parentNode.getAttribute('class') != 'transparencia display'){
+        victory.parentNode.classList.toggle('display')
+    }
     startGame.parentNode.classList.add('display')
     var plantX = Math.floor(Math.random() * 420)
     var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-    player = new Zombie(200, 770, board)
     plant = new Plants(plantX, plantY, board)
+    player = new Zombie(200, 770, board)
     player.spawnZombie()
     plant.spawnPlant()
     timerId = setInterval(zombieMovement, 30)
 }
 
-// Movimiento / Derrota / Victoria
+function goal() {
+    if (player.y <= 30) {
+        clearInterval(timerId)
+        reset()
+        victory.parentNode.classList.toggle('display')
+    }
+}
 
 function zombieMovement(){
-        goal()
-        checkCollition()
-        if(player.dead){
-            clearInterval(timerId)
-            reset()
-            gameOver.classList.toggle('display')
-        }
+    goal()
+    checkCollition()
+    if(player.dead){
+        clearInterval(timerId)
+        reset()
+        gameOver.classList.toggle('display')
+    }
     player.move()
 }
 
@@ -53,18 +61,16 @@ function checkCollition(){
         plant.y <= player.y + player.height &&
         plant.x + plant.width >= player.x &&
         plant.x <= player.x + player.width
-    ) {
-        player.dead = true
+        ) {
+            player.dead = true
     }
 }
 
-
-function goal() {
-    if (player.y <= 30) {
-        clearInterval(timerId)
-        //alert("Victoria")
-    }
+function reset(){
+    board.removeChild(player.sprite)
+    board.removeChild(plant.sprite)
 }
+
 
 // Controles
 window.addEventListener('keydown', function (e) {

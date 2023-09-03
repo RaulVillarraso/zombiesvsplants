@@ -5,7 +5,7 @@ function Zombie(x, y, board) {
     this.height = 30;
     this.width = 30;
     this.speed = 5;
-    this.direction = null;
+    this.direction = 0;
     this.dead = false;
     this.sprite;
 
@@ -29,5 +29,4 @@ function Zombie(x, y, board) {
         }
     }
 }
-
 export { Zombie }
