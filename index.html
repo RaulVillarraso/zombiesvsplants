@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js" defer></script>
+    <script src="index.js" type="module" defer></script>
     <link rel="stylesheet" href="style.css">
     <title>Zombies vs Plants</title>
 </head>
@@ -11,6 +11,17 @@
     <div id="main-board">
         <div id="finish"><h2>Meta</h2></div>
         <div id="start"></div>
+        <div class="transparencia display">
+            <div class="game-over">Game Over</div>
+            <button class="reset">Volver a empezar</button>
+        </div>
+        <div class="transparencia start">
+            <div id="start-game">Start</div>
+        </div>
+        <div class="transparencia display">
+            <div id="victory">Victory!</div>
+            <button class="reset">Volver a empezar</button>
+        </div>
     </div>
 </body>
 </html>
