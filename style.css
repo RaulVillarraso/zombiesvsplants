@@ -1,28 +1,37 @@
 body{
-   background-color: #808080;
-   /* display: flex;
-   justify-content: center;
-   align-items: center; */
+  background-color: #808080;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 #main-board {
-   width: 450px;
-   height: 800px;
-   background-color: lightgreen;
-   margin: 50px auto;
-   position: relative;
-   display: flex;
+  width: 450px;
+  height: 800px;
+  background-color: transparent;
+  overflow: hidden;
+  background-image: url('./fondo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 50px auto;
+  position: relative;
+  display: flex;
 } 
 
 
-#main-board #finish{
-  color: white;
+#finish{
+  /* color: white; */
   width: 450px;
   height: 30px;
-  background-color: red;
+  background-image: url('./meta.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-color: transparent; */
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 #start {
@@ -30,23 +39,43 @@ body{
   height: 30px;
   position: absolute;
   bottom: 0;
-  background-color: rgb(107, 56, 22);
+  background-position: center;
+  background-image: url('./salida.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
+
 .zombie{
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   position: absolute;
-  background-color: blue;
+  background-color: transparent;
+  overflow: hidden;
+  background-image: url('./zombi.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
 }
+
+
 
 .plants{
   width: 30px;
   height: 30px;
   position: absolute;
-  background-color: yellow;
+ 
+  background-color: transparent;
+  overflow: hidden;
+  background-image: url('./plantadisparo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
+/*start y game over*/
 .transparencia{
   width: 450px;
   height: 800px;
@@ -56,7 +85,6 @@ body{
   justify-content: center;
   align-items: center;
   opacity: 0.65;
-  display: none;
 }
 
 .game-over{
@@ -69,5 +97,42 @@ body{
   width: 450px;
   height: 200px;
   background-color: cornflowerblue;
+}
+
+#start-game{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 3rem;
+  width: 450px;
+  height: 200px;
+  background-color: darkolivegreen;
   z-index: 1;
+}
+
+.reset {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  background-color: grey;
+  top: 435px;
+  border-radius: 10px;
+}
+
+#victory{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 3rem;
+  width: 450px;
+  height: 200px;
+  background-color: cornflowerblue;
+}
+
+.display {
+  display: none;
 }

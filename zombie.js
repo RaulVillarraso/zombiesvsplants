@@ -9,7 +9,6 @@ function Zombie(x, y, board) {
     this.dead = false;
     this.sprite;
 
-
     this.spawnZombie = function () {
         this.sprite = document.createElement('div');
         this.sprite.style.top = this.y + 'px';
@@ -23,11 +22,10 @@ function Zombie(x, y, board) {
         self.y = self.y - 2;
         self.sprite.style.top = self.y + 'px';
         var future = self.x - self.speed * self.direction;
-        if (future > 0 && future < 420) {
+        if (future >= 0 && future <= 420) {
             self.x = self.x - self.speed * self.direction;
             self.sprite.style.left = self.x + 'px';
         }
     }
 }
-
 export { Zombie }
