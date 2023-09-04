@@ -40,7 +40,7 @@ function play() {
   var plantX = Math.floor(Math.random() * 420)
   var plantY = Math.floor(Math.random() * (600 - 40) + 40)
   plant = new Plants(plantX, plantY, board)
-  player = new Zombie(200, 770, board)
+  player = new Zombie(200, 740, board)
   player.spawnZombie()
   timerPlants = setInterval(plantsRandom, 1500);
   timerId = setInterval(zombieMovement, 30);
@@ -133,9 +133,13 @@ function plantsRandom() {
   if (!sobrepuesto) {
     var newPlant = new Plants(plantX, plantY, board);
     newPlant.spawnPlant();
-    newPlant.moveType = Math.floor(Math.random() * 2)
+    var move = Math.floor(Math.random() * 2)
+    if (move === 1){
+      newPlant.moveType = 'Vertical'
+    } else {
+      newPlant.moveType = 'Horizontal'
+    }
     movePlants.push(setInterval(newPlant.move, 30))
     arrPlants.push(newPlant);
   }
 } 
-
