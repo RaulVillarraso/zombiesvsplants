@@ -12,6 +12,8 @@ body{
   margin: 50px auto;
   position: relative;
   display: flex;
+
+
 } 
 
 
@@ -68,7 +70,12 @@ body{
   font-size: 3rem;
   width: 450px;
   height: 200px;
-  background-color: cornflowerblue;
+
+  background: url(./img/game\ over3.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  /* background-color: cornflowerblue; */
 }
 
 #start-game{
@@ -86,11 +93,13 @@ body{
 
 .reset {
   position: absolute;
-  width: 100px;
-  height: 50px;
-  background-color: grey;
-  top: 435px;
+  /* width: 100px;
+  height: 50px; */
+  /* background-color: grey; */
+  top: 477px;
   border-radius: 10px;
+  left: 40%;
+
 }
 
 #victory{
