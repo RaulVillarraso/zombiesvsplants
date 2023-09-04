@@ -32,9 +32,9 @@ function play() {
     victory.parentNode.classList.toggle('display')
   }
   startGame.parentNode.classList.add('display')
-  // var plantX = Math.floor(Math.random() * 420)
-  // var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-  // plant = new Plants(plantX, plantY, board)
+  var plantX = Math.floor(Math.random() * 420)
+  var plantY = Math.floor(Math.random() * (600 - 40) + 40)
+  plant = new Plants(plantX, plantY, board)
   player = new Zombie(200, 770, board)
   timerPlants = setInterval(plantsRandom, 2000);
   player.spawnZombie()
@@ -80,7 +80,15 @@ function checkCollition() {//for para recorrer el array y dar colisiones a todas
 function reset() {//borrar todos las plantas con queryseletionAll
   clearInterval(timerId)
   clearInterval(timerPlants)
-  board.removeChild(arrPlants[i].clearPlants)
+
+  
+  for (let i = 0; i < arrPlants.length; i++) {
+    if (arrPlants[i].sprite) {
+      board.removeChild(arrPlants[i].sprite);
+    }
+  }
+  arrPlants = [];
+
   board.removeChild(player.sprite)
   // board.removeChild(plant.sprite)
 }

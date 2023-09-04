@@ -15,8 +15,8 @@ function Plants(x, y, board) {
     }
 
     this.clearPlants = function (){
-        const deletePlants = document.querySelector('.plants')
-        // board.removeChild(deletePlants) 
+        const deletePlants = document.querySelectorAll('.plants')
+        //board.removeChild(deletePlants) 
         console.log('borrado')
     }
     
