@@ -1,6 +1,10 @@
 import { Zombie } from './zombie.js';
 import { Plants } from './plants.js';
 
+var musica = new Audio("./music/scary_halloween_ambience_var1.wav")
+musica.volume = 0.3
+var musicachoque = new Audio("./music/choque.wav")
+var musicameta = new Audio("./music/meta.mp3")
 
 // Tablero y Elementos
 var board = document.getElementById('main-board');
@@ -40,12 +44,15 @@ function play() {
   player.spawnZombie()
   timerPlants = setInterval(plantsRandom, 1500);
   timerId = setInterval(zombieMovement, 30);
+  musica.play()
 }
 
 function goal() {
   if (player.y <= 30) {
+    musica.pause() 
     reset()
     victory.parentNode.classList.toggle('display')
+    musicameta.play()
   }
 }
 
@@ -53,6 +60,8 @@ function zombieMovement() {
   goal()
   checkCollition()
   if (player.dead) {
+    musicachoque.play()
+    musica.pause()
     reset()
     gameOver.classList.toggle('display')
   }
