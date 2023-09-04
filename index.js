@@ -38,7 +38,6 @@ function play() {
   player = new Zombie(200, 770, board)
   timerPlants = setInterval(plantsRandom, 2000);
   player.spawnZombie()
-  //plant.spawnPlant()
   timerId = setInterval(zombieMovement, 30)
 }
 
@@ -60,8 +59,6 @@ function zombieMovement() {
   }
   player.move()
 }
-
-
 
 function checkCollition() {//for para recorrer el array y dar colisiones a todas las plantas
   for (let i = 0; i < arrPlants.length; i++) {
@@ -116,7 +113,21 @@ window.addEventListener('keyup', function () {
 function plantsRandom() {
   plantX = Math.floor(Math.random() * 420);
   plantY = Math.floor(Math.random() * (600 - 40) + 40);
-  plant = new Plants(plantX, plantY, board);
-  arrPlants.push(plant);
-  plant.spawnPlant();
-}
+  for (let i = 0; i < arrPlants.length; i++) {
+    var plantaExistente = arrPlants[i];
+
+    if (
+      Math.abs(plantaExistente.x - plantX) < 40 &&
+      Math.abs(plantaExistente.y - plantY) < 40
+    ) {
+      var sobrepuesto = true; 
+      break;
+    }
+  }
+if (!sobrepuesto) {
+    var newPlant = new Plants(plantX, plantY, board);
+    newPlant.spawnPlant();
+    arrPlants.push(newPlant);
+  }
+} 
+
