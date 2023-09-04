@@ -8,23 +8,30 @@ body{
 #main-board {
   width: 450px;
   height: 800px;
-  background-color: lightgreen;
+  background-color: transparent;
+  overflow: hidden;
+  background-image: url('./img/fondo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   margin: 50px auto;
   position: relative;
   display: flex;
+}  
 
 
-} 
-
-
-#main-board #finish{
-  color: white;
+#finish{
+  color: white; 
   width: 450px;
   height: 30px;
-  background-color: red;
+  background-image: url('./img/meta.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent; 
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
 }
 
 #start {
@@ -32,14 +39,23 @@ body{
   height: 30px;
   position: absolute;
   bottom: 0;
-  background-color: rgb(107, 56, 22);
+  background-position: center;
+  background-image: url('./img/salida.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .zombie{
   width: 30px;
   height: 30px;
   position: absolute;
-  background-color: blue;
+  background-color: transparent;
+  overflow: hidden;
+  background-image: url('./img/zombi.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .plants{
@@ -47,6 +63,12 @@ body{
   height: 30px;
   position: absolute;
   background-color: yellow;
+  background-color: transparent;
+  overflow: hidden;
+  background-image: url('./img/plantadisparo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*start y game over*/

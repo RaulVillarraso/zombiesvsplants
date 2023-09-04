@@ -1,8 +1,11 @@
 function Plants(x, y, board) {
+    var self = this
     this.x = x; 
     this.y = y; 
     this.height = 30;
     this.width = 30;
+    this.direction = 1
+    this.moveType;
     this.sprite;
 
     this.spawnPlant = function () { 
@@ -14,15 +17,15 @@ function Plants(x, y, board) {
         board.appendChild(this.sprite) 
     }
 
-    this.clearPlants = function (){
-        const deletePlants = document.querySelectorAll('.plants')
-        //board.removeChild(deletePlants) 
-        console.log('borrado')
+    this.move = function (){
+        if (self.moveType == 0){
+            var initial = self.x
+            if(self.x >= initial + self.width){self.direction = 1}
+            if(self.x <= initial - self.width){self.direction = -1}
+            self.x = self.x + 2 * self.direction
+            self.sprite.style.left = self.x + 'px';
+        }
     }
-    
 }
-
-
-
 
 export {Plants};

@@ -20,7 +20,7 @@ function Zombie(x, y, board) {
 
 
     this.move = function () {
-        self.y = self.y - 2;
+        self.y = self.y - 1;
         self.sprite.style.top = self.y + 'px';
         var future = self.x - self.speed * self.direction;
         if (future > 0 && future < 420) {
