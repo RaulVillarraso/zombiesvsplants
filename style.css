@@ -1,8 +1,10 @@
 body{
-  background-color: #808080;
+  background-image: url('/main.jpg');
   /* display: flex;
   justify-content: center;
   align-items: center; */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #main-board {
@@ -17,6 +19,8 @@ body{
   margin: 50px auto;
   position: relative;
   display: flex;
+  margin-top: 20vh;
+  filter: brightness(50%); 
 }  
 
 
@@ -62,7 +66,6 @@ body{
   width: 30px;
   height: 30px;
   position: absolute;
-  background-color: yellow;
   background-color: transparent;
   overflow: hidden;
   background-image: url('./img/plantadisparo.png');
@@ -91,13 +94,13 @@ body{
   text-align: center;
   font-size: 3rem;
   width: 450px;
-  height: 200px;
+  height: 700px;
 
-  background: url(./img/game\ over3.jpg) no-repeat;
+  background-repeat: no-repeat;
+  background-image: url('./gameover2.jpg');
   background-size: cover;
-  background-position: center;
   overflow: hidden;
-  /* background-color: cornflowerblue; */
+
 }
 
 #start-game{
@@ -107,21 +110,13 @@ body{
   flex-direction: column;
   text-align: center;
   font-size: 3rem;
-  width: 450px;
-  height: 200px;
-  background-color: darkolivegreen;
-  z-index: 1;
-}
-
-.reset {
-  position: absolute;
-  /* width: 100px;
-  height: 50px; */
-  /* background-color: grey; */
-  top: 477px;
-  border-radius: 10px;
-  left: 40%;
-
+  width: 700px;
+  height:400px;
+  background-image: url('./start2.gif');
+  background-repeat: no-repeat; 
+  background-size: cover;
+  z-index: 1000 !important;
+  
 }
 
 #victory{
@@ -129,13 +124,86 @@ body{
   display: flex;
   justify-content: center;
   flex-direction: column;
+  top: 160px;
   text-align: center;
   font-size: 3rem;
-  width: 450px;
-  height: 200px;
-  background-color: cornflowerblue;
+  width: 330px;
+  height: 300px;
+  background-image: url('./ganador.png');
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  
+}
+
+.reset{
+  position: absolute;
+  top:450px;
+  left: 30%;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size:15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: yellow;
+  position: absolute;
+  padding: 10px 15px; /* Aumentar el padding para hacer el botón más grande */
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  /* imagen de fondo */
+ 
+  background-position: center;
+  background-repeat: no-repeat; 
+  
+  /* transición para efectos hover */
+  transition: all 0.3s;
 }
 
 .display {
   display: none;
+}
+
+
+.resetgameover {
+  /* dimensiones y formato básico del botón */
+  position: absolute;
+  padding: 30px 155px; /* Aumentar el padding para hacer el botón más grande */
+  border: none;
+  border-radius: 10px;
+  /* imagen de fondo */
+  background-image: url('./gameover1.jpg');
+  background-position: center;
+  background-repeat: no-repeat; 
+  top: 190px;
+  left: 28%;
+  /* transición para efectos hover */
+  transition: all 0.3s;
+}
+
+.resetgameover:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 10px rgba(255, 0, 0, 0.4);
+}
+
+
+.buttonstart{
+  position: absolute;
+  padding: 20px 20px; /* Aumentar el padding para hacer el botón más grande */
+  border: none;
+  border-radius: 10px;
+  /* imagen de fondo */
+
+  background-image: url('./bottostart.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  top: 200px;
+  left: 70%;
+  /* transición para efectos hover */
+  transition: all 0.3s;
+  background-color: transparent;
+  
+}
+
+.buttonstart:hover{
+  transform: scale(1.05);
 }

@@ -55,4 +55,4 @@ function Plants(x, y, board) {
   };
 }
 
-export { Plants };
+export {Plants};
