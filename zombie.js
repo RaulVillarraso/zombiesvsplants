@@ -6,6 +6,7 @@ function Zombie(x, y, board) {
     this.width = 30;
     this.speed = 5;
     this.direction = 0;
+    this.direction2 = 0;
     this.dead = false;
     this.sprite;
 
@@ -20,12 +21,15 @@ function Zombie(x, y, board) {
 
 
     this.move = function () {
-        self.y = self.y - 1;
-        self.sprite.style.top = self.y + 'px';
         var future = self.x - self.speed * self.direction;
+        var nextY = self.y - self.speed * self.direction2;
         if (future >= 0 && future <= 420) {
             self.x = self.x - self.speed * self.direction;
             self.sprite.style.left = self.x + 'px';
+        }
+        if(nextY >= 0 && nextY <= 750){
+            self.y = self.y - self.speed * self.direction2;
+            self.sprite.style.top = self.y + 'px';
         }
     }
 }

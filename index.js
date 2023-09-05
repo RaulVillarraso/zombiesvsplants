@@ -2,9 +2,10 @@ import { Zombie } from './zombie.js';
 import { Plants } from './plants.js';
 
 var musica = new Audio("./music/scary_halloween_ambience_var1.wav")
-musica.volume = 0.3
 var musicachoque = new Audio("./music/choque.wav")
 var musicameta = new Audio("./music/meta.mp3")
+/*controlar volumen  */
+musica.volume = 0.3 
 
 // Tablero y Elementos
 var board = document.getElementById('main-board');
@@ -107,12 +108,22 @@ window.addEventListener('keydown', function (e) {
     case 'd':
       player.direction = -1
       break;
+    case 'w':
+      player.direction2 = 1
+      break;
+    case 's':
+      player.direction2 = -1
+      break;
+      default:
+        player.direction = 0
+        player.direction2 = 0
   }
 }
 )
 
 window.addEventListener('keyup', function () {
   player.direction = 0
+  player.direction2 = 0
 })
 
 
