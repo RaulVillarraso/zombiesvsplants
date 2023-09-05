@@ -22,14 +22,14 @@ function Plants(x, y, board) {
   this.move = function () {
     if (self.moveType === "Horizontal") {
       if (self.direction === "Left") {
-        if (self.x <= self.initialX - 60) {
+        if (self.x <= self.initialX - 60 || self.x <= 0) {
           self.direction = "Right";
         }
         self.x = self.x - 2;
         self.sprite.style.left = self.x + "px";
 
       } else {
-        if (self.x + self.width >= self.initialX + self.width + 60) {
+        if (self.x + self.width >= self.initialX + self.width + 60 || self.x + self.width >= 450) {
           self.direction = "Left";
         }
         self.x = self.x + 2;
@@ -37,15 +37,14 @@ function Plants(x, y, board) {
       }
     } else {
         if (self.direction === "Up") {
-            if (self.y <= self.initialY - 60) {
+            if (self.y <= self.initialY - 60 || self.y <= 0) {
               self.direction = "Down";
             }
             self.y = self.y - 2;
             self.sprite.style.top = self.y + "px";
-    
-            // if(self.y <= self.initialX - 70){ self.direction = 1}
+
           } else {
-            if (self.y + self.height >= self.initialY + self.height + 60) {
+            if (self.y + self.height >= self.initialY + self.height + 60 || self.y + self.height >= 800) {
               self.direction = "Up";
             }
             self.y = self.y + 2;

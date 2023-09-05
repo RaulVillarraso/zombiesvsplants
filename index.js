@@ -2,6 +2,7 @@ import { Zombie } from './zombie.js';
 import { Plants } from './plants.js';
 
 var musica = new Audio("./music/scary_halloween_ambience_var1.wav")
+musica.volume = 0
 var musicachoque = new Audio("./music/choque.wav")
 var musicameta = new Audio("./music/meta.mp3")
 /*controlar volumen  */
