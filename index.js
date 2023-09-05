@@ -40,7 +40,7 @@ function play() {
   var plantX = Math.floor(Math.random() * 420)
   var plantY = Math.floor(Math.random() * (600 - 40) + 40)
   plant = new Plants(plantX, plantY, board)
-  player = new Zombie(200, 770, board)
+  player = new Zombie(200, 740, board)
   player.spawnZombie()
   timerPlants = setInterval(plantsRandom, 1500);
   timerId = setInterval(zombieMovement, 30);
@@ -143,4 +143,3 @@ function plantsRandom() {
     arrPlants.push(newPlant);
   }
 } 
-
