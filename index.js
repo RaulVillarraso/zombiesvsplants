@@ -44,6 +44,7 @@ function play() {
   player.spawnZombie()
   timerPlants = setInterval(plantsRandom, 1500);
   timerId = setInterval(zombieMovement, 30);
+
   musica.play()
 }
 
@@ -102,17 +103,27 @@ function reset() {
 window.addEventListener('keydown', function (e) {
   switch (e.key) {
     case 'a':
-      player.direction = 1
+      player.directionX = 1
       break;
     case 'd':
-      player.direction = -1
+      player.directionX = -1
       break;
+    case 'w':
+      player.directionY = 1
+      break;
+    case 's':
+      player.directionY = -1
+      break;
+      default:
+        player.directionX = 0;//si pulsa cualquier tecla se pone en 0
+        player.directionY = 0;
   }
 }
 )
 
 window.addEventListener('keyup', function () {
-  player.direction = 0
+  player.directionX = 0;
+  player.directionY = 0;
 })
 
 
