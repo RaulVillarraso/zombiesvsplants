@@ -44,7 +44,7 @@ function play() {
   plant = new Plants(plantX, plantY, board)
   player = new Zombie(200, 740, board)
   player.spawnZombie()
-  timerPlants = setInterval(plantsRandom, 1500);
+  timerPlants = setInterval(plantsRandom, 1000);
   timerId = setInterval(zombieMovement, 30);
   musica.play()
 }
