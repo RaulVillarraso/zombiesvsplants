@@ -1,8 +1,5 @@
 body{
-  background-image: url('/img/main3.jpg');
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  background-image: url('./img/main3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -16,7 +13,7 @@ body{
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 50px auto;
+  margin: 25px auto;
   position: relative;
   display: flex;
   margin-top: 20vh;
