@@ -18,7 +18,6 @@ var timerId
 var timerPlants
 var movePlants = []
 var player
-var plant
 var plantX
 var plantY
 var arrPlants = []
@@ -39,9 +38,6 @@ function play() {
     victory.parentNode.classList.toggle('display')
   }
   startGame.parentNode.classList.add('display')
-  var plantX = Math.floor(Math.random() * 420)
-  var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-  plant = new Plants(plantX, plantY, board)
   player = new Zombie(200, 740, board)
   player.spawnZombie()
   timerPlants = setInterval(plantsRandom, 1000);
