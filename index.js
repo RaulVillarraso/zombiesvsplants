@@ -5,6 +5,8 @@ var musica = new Audio("./music/scary_halloween_ambience_var1.wav")
 musica.volume = 0
 var musicachoque = new Audio("./music/choque.wav")
 var musicameta = new Audio("./music/meta.mp3")
+/*controlar volumen  */
+musica.volume = 0.3 
 
 // Tablero y Elementos
 var board = document.getElementById('main-board');
@@ -16,7 +18,6 @@ var timerId
 var timerPlants
 var movePlants = []
 var player
-var plant
 var plantX
 var plantY
 var arrPlants = []
@@ -37,12 +38,9 @@ function play() {
     victory.parentNode.classList.toggle('display')
   }
   startGame.parentNode.classList.add('display')
-  var plantX = Math.floor(Math.random() * 420)
-  var plantY = Math.floor(Math.random() * (600 - 40) + 40)
-  plant = new Plants(plantX, plantY, board)
   player = new Zombie(200, 740, board)
   player.spawnZombie()
-  timerPlants = setInterval(plantsRandom, 1500);
+  timerPlants = setInterval(plantsRandom, 1000);
   timerId = setInterval(zombieMovement, 30);
   musica.play()
 }
@@ -107,12 +105,22 @@ window.addEventListener('keydown', function (e) {
     case 'd':
       player.direction = -1
       break;
+    case 'w':
+      player.direction2 = 1
+      break;
+    case 's':
+      player.direction2 = -1
+      break;
+      default:
+        player.direction = 0
+        player.direction2 = 0
   }
 }
 )
 
 window.addEventListener('keyup', function () {
   player.direction = 0
+  player.direction2 = 0
 })
 
 
